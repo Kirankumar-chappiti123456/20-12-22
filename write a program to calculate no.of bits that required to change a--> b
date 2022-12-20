@@ -24,3 +24,34 @@ int main()
     int (*fptr)(int ,int)=req;
     fptr(num,num1);
 }
+
+
+using pointer:
+#include<stdio.h>
+#define N sizeof(int)*8
+int req(int p,int q)
+{
+    int i=0,c=0,n=0,n1=0;
+    
+    for(i=0;i<N;i++)
+    {
+        
+        n=(p>>i)&1;
+        n1=(q>>i)&1;
+        if(n!=n1)
+        c++;
+    }
+    printf("%d",c);
+}
+int main()
+{
+    int num,num1;
+    printf("enter the number:");
+    scanf("%d",&num);
+    printf("enter the another number:");
+    scanf("%d",&num1);
+    int *p=num;
+    int *q=num1;
+    int (*fptr)(int ,int )=req;
+    fptr(p,q);
+}

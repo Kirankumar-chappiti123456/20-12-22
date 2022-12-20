@@ -1,0 +1,26 @@
+#include<stdio.h>
+#define N sizeof(int)*8
+int req(int num,int num1)
+{
+    int i=0,c=0,n=0,n1=0;
+    
+    for(i=0;i<N;i++)
+    {
+        
+        n=(num>>i)&1;
+        n1=(num1>>i)&1;
+        if(n!=n1)
+        c++;
+    }
+    printf("%d",c);
+}
+int main()
+{
+    int num,num1;
+    printf("enter the number:");
+    scanf("%d",&num);
+    printf("enter the another number:");
+    scanf("%d",&num1);
+    int (*fptr)(int ,int)=req;
+    fptr(num,num1);
+}

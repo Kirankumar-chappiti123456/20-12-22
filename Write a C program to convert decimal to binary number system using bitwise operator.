@@ -1,17 +1,18 @@
-
-
 #include <stdio.h>
-#define N sizeof(int)*8
+#include<string.h>
 int fun(int num)
 {
-    int c=0,c1=0,index=0;
+    int index,c=0;
+    printf("enter the number:");
+    scanf("%d",&num);
+   int N =sizeof(int)*8;
     int bin[N];
-   
     int n=sizeof(int )*8;
     index=N-1;
-    while(index>0 && index>1)
+    while(index>=0)
     {
         bin[index]=num&1;
+        c++;
         index--;
         num=num>>1;
     }
@@ -19,17 +20,13 @@ int fun(int num)
     for(int i=0;i<N;i++)
     {
         printf("%d ",bin[i]);
-        
     }
-    int len=sizeof(bin)/sizeof(bin[0]);
-    printf("\n no of binary number:%d",len);
+    
 }
 int main()
 {
-    int num;
-     printf("enter the number:");
-    scanf("%d",&num);
-    int (*fptr)(int )=fun;
+    int num=5;
+    int (*fptr)(int)=fun;
     fptr(num);
     
 }
